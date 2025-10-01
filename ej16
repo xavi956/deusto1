@@ -1,0 +1,23 @@
+def rectangulo(ancho, alto, char="#"):
+    """Devuelve un rectángulo hueco de tamaño ancho×alto hecho con `char`."""
+    if ancho <= 0 or alto <= 0:
+        return ""  
+    borde = char * ancho
+
+    if ancho >= 2:
+        medio = char + " " * (ancho - 2) + char
+    else:
+        medio = char
+
+
+    if alto == 1:
+        return borde
+    elif alto == 2:
+        return borde + "\n" + borde
+    else:
+        return "\n".join([borde] + [medio] * (alto - 2) + [borde])
+
+
+ancho = int(input("Anchura: "))
+alto  = int(input("Altura: "))
+print(rectangulo(ancho, alto))
