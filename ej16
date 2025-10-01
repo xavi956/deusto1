@@ -1,5 +1,4 @@
 def rectangulo(ancho, alto, char="#"):
-    """Devuelve un rectángulo hueco de tamaño ancho×alto hecho con `char`."""
     if ancho <= 0 or alto <= 0:
         return ""  
     borde = char * ancho
