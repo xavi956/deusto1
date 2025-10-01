@@ -1,0 +1,32 @@
+ef1 = 10
+ef2 = 50
+precio1 = 15000
+precio2 = 30000
+
+class Coche:
+    def __init__(self, eficiencia, precio, precioGas, km):
+        self.eficiencia = eficiencia
+        self.precio = precio 
+        self.precioGas = precioGas 
+        self.km = km
+        
+    def coste_total(self, años):
+        coste_gasolina_anual = (self.km / self.eficiencia) * self.precioGas
+        return self.precio + años * coste_gasolina_anual
+
+km = float(input("[?] ¿Cuántos km quieres recorrer al año?: "))
+gas = float(input("[?] Precio de la gasolina (€/L): "))
+
+coche1 = Coche(ef1, precio1, gas, km)
+coche2 = Coche(ef2, precio2, gas, km)
+
+print("\n--- Comparación de costes ---")
+for año in range(1, 16): 
+    coste1 = coche1.coste_total(año)
+    coste2 = coche2.coste_total(año)
+    if coste1 < coste2:
+        print(f"\nAño {año}: Coche 1 es más barato ({coste1:.2f} € vs {coste2:.2f} €)\n")
+    elif coste2 < coste1:
+        print(f"\nAño {año}: Coche 2 es más barato ({coste2:.2f} € vs {coste1:.2f} €)\n")
+    else:
+        print(f"\nAño {año}: Ambos cuestan lo mismo ({coste1:.2f} €)\n")
